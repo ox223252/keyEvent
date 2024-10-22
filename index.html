@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Test</title>
+</head>
+<body>
+	<section id="text">Ceci est un petit txte d'exemple pour voir ce que ça donne</section>
+	<script type="text/javascript" src="keyEvent.js"></script>
+	<script type="text/javascript">
+		let texte = document.getElementById ( "text" );
+
+		let keyEvent = new KeyEvent ( );
+
+		keyEvent.initStdShort ( );
+
+		for ( let el of keyEvent.list )
+		{
+			keyEvent.addEventListener ( el.event, ()=>{console.log ( el.event )} )
+		}
+
+		console.log ( keyEvent.help )
+
+		keyEvent.addEventListener ( "copy", (e)=>{
+			const selObj = window.getSelection();
+			alert(selObj);
+		} );
+	</script>
+</body>
+</html>
